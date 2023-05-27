@@ -137,7 +137,6 @@ function App() {
   return (
     <div className="main">
       <div className="card">
-      <h1 className="title">Yield Forge Protocol</h1>
         <div>
           {!address ? (
             <button className="button" onClick={connectWallet}>
@@ -147,7 +146,6 @@ function App() {
             <p>Connected Wallet Address: {address}</p>
           )}
         </div>
-        <div className="forms-container">
         <form className="form" onSubmit={numberStake}>
           <label>
             Stake your ETH tokens:
@@ -179,9 +177,7 @@ function App() {
             Confirm
           </button>
         </form>
-        </div>
         <p>Token Balance: {balance}</p>
-        <p>Token Symbol: {symbol}</p>
         <p>Metadata:</p>
         <ul>
         <p><strong>Token ID:</strong> {metadata.tokenId}</p>
@@ -189,6 +185,7 @@ function App() {
         <p><strong>Amount:</strong> {metadata.amount / (10**18)} ETH</p>
         <p><strong>Time Minted:</strong> {new Date(metadata.time_minted * 1000).toLocaleString()}</p>
         </ul>
+        <p>Token Symbol: {symbol}</p>
         {stakingTxHash && (
           <div>
             <p>
