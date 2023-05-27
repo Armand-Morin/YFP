@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "name": "Yield Forge Protocol",
+  "homepage": "http://Armand-Morin.github.io/YFP",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,8 +25,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
     "test": "react-scripts test",
-    "deploy": "npx thirdweb@latest deploy",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,6 +54,7 @@
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.4",
-    "ethers": "^5.6.9"
+    "ethers": "^5.6.9",
+    "gh-pages": "^5.0.0"
   }
 }
