@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/YFP/static/css/main.40ff5c8e.css",
+    "main.js": "/YFP/static/js/main.c7bec08c.js",
+    "static/js/787.cd2313d7.chunk.js": "/YFP/static/js/787.cd2313d7.chunk.js",
+    "index.html": "/YFP/index.html",
+    "main.40ff5c8e.css.map": "/YFP/static/css/main.40ff5c8e.css.map",
+    "main.c7bec08c.js.map": "/YFP/static/js/main.c7bec08c.js.map",
+    "787.cd2313d7.chunk.js.map": "/YFP/static/js/787.cd2313d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40ff5c8e.css",
+    "static/js/main.c7bec08c.js"
+  ]
+}
