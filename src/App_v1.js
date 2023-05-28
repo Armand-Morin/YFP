@@ -1,5 +1,12 @@
+import {
+  ConnectWallet,
+  ThirdwebProvider,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
 import React, { useState, useEffect } from "react";
 import { StakingContract } from "./abi/abi.js";
+import styles from "./styles/Home.module.css";
 import Web3 from "web3";
 import "./App.css";
 
@@ -135,57 +142,77 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <div className="card">
-        <div>
-          {!address ? (
-            <button className="button" onClick={connectWallet}>
-              Connect Wallet
-            </button>
-          ) : (
-            <p>Connected Wallet Address: {address}</p>
-          )}
+    <ThirdwebProvider>
+      <div className={styles.main}>
+      <header className={styles.header}>
+        {!address ? (
+          <ConnectWallet
+            onConnect={connectWallet}
+            render={({ loading, connect }) => (
+              <Web3Button onClick={connect} disabled={loading}>
+                Connect Wallet
+              </Web3Button>
+            )}
+          />
+        ) : (
+          <p>Connected Wallet Address: {address}</p>
+        )}
+      </header>
+        <div className="card">
+          <h1 className={styles.title}>Yield Forge Protocol</h1>
+          
+          <div className="forms-container">
+            <form className="form" onSubmit={numberStake}>
+              <p className={styles.description}>
+                Amount of ETH to stake:
+                <input
+                  className={styles.textbox}
+                  type="number"
+                  value={number}
+                  onChange={(event) => setNumber(event.target.value)}
+                />
+              </p>
+              <Web3Button type="submit">Stake!</Web3Button>
+            </form>
+            <br />
+            <form className="form" onSubmit={numberWithdraw}>
+              <p className={styles.description}>
+                Withdraw (Enter NFT id):
+                <input
+                  className={styles.textbox}
+                  type="number"
+                  value={withdrawNumber}
+                  onChange={(event) => setWithdrawNumber(event.target.value)}
+                />
+              </p>
+              <Web3Button type="submit">Unstake!</Web3Button>
+            </form>
+          </div>
         </div>
-        <form className="form" onSubmit={numberStake}>
-          <label>
-            Stake your ETH tokens:
-            <input
-              className="input"
-              type="text"
-              name="name"
-              value={number}
-              onChange={(event) => setNumber(event.target.value)}
-            />
-          </label>
-          <button className="button" type="submit" value="Confirm">
-            Confirm
-          </button>
-        </form>
-        <br />
-        <form className="form" onSubmit={numberWithdraw}>
-          <label>
-            Withdraw your tokens:
-            <input
-              className="input"
-              type="text"
-              name="name"
-              value={withdrawNumber}
-              onChange={(event) => setWithdrawNumber(event.target.value)}
-            />
-          </label>
-          <button className="button" type="submit">
-            Confirm
-          </button>
-        </form>
-        <p>Token Balance: {balance}</p>
-        <p>Metadata:</p>
-        <ul>
-        <p><strong>Token ID:</strong> {metadata.tokenId}</p>
-        <p><strong>Description Pairs:</strong> {JSON.stringify(metadata.description_pairs)}</p>
-        <p><strong>Amount:</strong> {metadata.amount / (10**18)} ETH</p>
-        <p><strong>Time Minted:</strong> {new Date(metadata.time_minted * 1000).toLocaleString()}</p>
-        </ul>
-        <p>Token Symbol: {symbol}</p>
+        <div className={styles.grid}>
+          <a className={styles.card}>
+            <h2>Staked token balance</h2>
+            <p>{balance}</p>
+          </a>
+          <a className={styles.card}>
+            <h2>Token Symbol:</h2>
+            <p>{symbol}</p>
+          </a>
+          <a className={styles.card}>
+            <strong>Token ID:</strong> {metadata.tokenId}
+          </a>
+          <a className={styles.card}>
+            <strong>Description Pairs:</strong>{" "}
+            {JSON.stringify(metadata.description_pairs)}
+          </a>
+          <a className={styles.card}>
+            <strong>Amount:</strong> {metadata.amount / 10 ** 18} ETH
+          </a>
+          <a className={styles.card}>
+            <strong>Time Minted:</strong>{" "}
+            {new Date(metadata.time_minted * 1000).toLocaleString()}
+          </a>
+        </div>
         {stakingTxHash && (
           <div>
             <p>
@@ -215,10 +242,7 @@ function App() {
           </div>
         )}
       </div>
-    </div>
+    </ThirdwebProvider>
   );
-}
-
-export default App;
-
-           
+  }
+  export default App;
