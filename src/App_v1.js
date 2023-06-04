@@ -165,7 +165,7 @@ function App() {
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                Amount of ETH to stake:
+                Amount of MATIC to stake:
                 <input
                   className={styles.textbox}
                   type="number"
@@ -207,7 +207,7 @@ function App() {
             {JSON.stringify(metadata.description_pairs)}
           </a>
           <a className={styles.card}>
-            <strong>Amount:</strong> {metadata.amount / 10 ** 18} ETH
+            <strong>Amount:</strong> {metadata.amount / 10 ** 18} MATIC
           </a>
           <a className={styles.card}>
             <strong>Time Minted:</strong>{" "}
@@ -217,9 +217,9 @@ function App() {
         {stakingTxHash && (
           <div>
             <p>
-              Staking TX on Etherscan:{" "}
+              Staking TX on Mumbai:{" "}
               <a
-                href={`https://sepolia.etherscan.io/tx/${stakingTxHash}`}
+                href={`https://mumbai.polygonscan.com/tx/${stakingTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -231,9 +231,9 @@ function App() {
         {withdrawTxHash && (
           <div>
             <p>
-              Withdraw TX on Etherscan:{" "}
+              Withdraw TX on Mumbai:{" "}
               <a
-                href={`https://sepolia.etherscan.io/tx/${withdrawTxHash}`}
+                href={`https://mumbai.polygonscan.com/tx/${withdrawTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

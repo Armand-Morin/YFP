@@ -1,5 +1,5 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { mumbai } from "@thirdweb-dev/chains";
+import "@rainbow-me/rainbowkit/styles.css";
 import {
   ConnectWallet,
   ThirdwebProvider,
@@ -13,7 +13,7 @@ import Web3 from "web3";
 import "./styles/App.css";
 
 const web3 = new Web3(Web3.givenProvider);
-const contractAddress = "0x1359dffc4b2223Fcac5064234863eF04ae526eDC";
+const contractAddress = "0x30Af08187a4E05D62edaBb01e70C6B74040a31c2";
 const contractInstance = new web3.eth.Contract(StakingContract, contractAddress);
 
 function App() {
@@ -144,10 +144,10 @@ function App() {
   };
 
   return (
-    <ThirdwebProvider activeChain={"mumbai"}>
+    <ThirdwebProvider>
       <div className={styles.main}>
       <header className={styles.header}>
-
+        <img className={styles.alchemy_logo} src="../logo.svg" style={{ width: "200px", height: "82px" }}></img>
         
           <ConnectWallet
             onConnect={connectWallet}
@@ -161,12 +161,19 @@ function App() {
       </header>
       
         <div className="card">
-          <h1 className={styles.title}>Yield Forge Protocol</h1>
+          <header className={styles.header_container}>
+          <h1>
+            <span>YieldForge Protocol</span>
+          </h1>
+          <p>
+            Start exploring our strategies{" "}
+          </p>
+        </header>
           
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                Amount of ETH to stake:
+                Amount of MATIC to stake:
                 <input
                   className={styles.textbox}
                   type="number"
@@ -174,7 +181,7 @@ function App() {
                   onChange={(event) => setNumber(event.target.value)}
                 />
               </p>
-              <Web3Button type="submit">Stake!</Web3Button>
+              <button type="submit">Stake!</button>
             </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
@@ -187,7 +194,7 @@ function App() {
                   onChange={(event) => setWithdrawNumber(event.target.value)}
                 />
               </p>
-              <Web3Button type="submit">Unstake!</Web3Button>
+              <button type="submit">Unstake!</button>
             </form>
           </div>
         </div>
@@ -208,7 +215,7 @@ function App() {
             {JSON.stringify(metadata.description_pairs)}
           </a>
           <a className={styles.card}>
-            <strong>Amount:</strong> {metadata.amount / 10 ** 18} ETH
+            <strong>Amount:</strong> {metadata.amount / 10 ** 18} MATIC
           </a>
           <a className={styles.card}>
             <strong>Time Minted:</strong>{" "}
@@ -218,9 +225,9 @@ function App() {
         {stakingTxHash && (
           <div>
             <p>
-              Staking TX on Etherscan:{" "}
+              Staking TX on Mumbai:{" "}
               <a
-                href={`https://sepolia.etherscan.io/tx/${stakingTxHash}`}
+                href={`https://mumbai.polygonscan.com/tx/${stakingTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -232,9 +239,9 @@ function App() {
         {withdrawTxHash && (
           <div>
             <p>
-              Withdraw TX on Etherscan:{" "}
+              Withdraw TX on Mumbai:{" "}
               <a
-                href={`https://sepolia.etherscan.io/tx/${withdrawTxHash}`}
+                href={`https://mumbai.polygonscan.com/tx/${withdrawTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -2,6 +2,43 @@
     padding: 0 2rem;
 
   }
+
+  .alchemy_logo{
+    width: 6rem;
+    cursor: pointer;
+  }
+
+  .header_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header_container h1{
+    font-size: 64px;
+  
+  }
+  .header_container p{
+    font-size: 25;
+    color: rgb(227, 144, 109);
+    
+  }
+  
+  .header_container h1 span{
+    background: linear-gradient(140deg, rgb(205, 98, 52) 0%, rgb(220, 206, 20) 100%);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 4rem 0.8rem 4rem;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
   
   .main {
     min-height: 100vh;
@@ -12,6 +49,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    display: flex;
+
+    margin-bottom: 2rem;
+    min-height: 100vh;
+    min-height: 100vh;
+    padding: 1rem 0;
+    flex: 1;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #141413;
+    height: 100vh;
   }
   
   .stakeContainer {
@@ -54,6 +105,7 @@
   
   .title,
   .description {
+    color: #ffffff;
     text-align: center;
   }
   
@@ -64,13 +116,14 @@
   
   .description {
     margin-top: 3rem;
+    color: #ffffff;
     margin-bottom: 2rem;
     line-height: 1.5;
     font-size: 1.5rem;
   }
   
   .code {
-    background: #fafafa;
+    background: #ffffff;
     border-radius: 5px;
     padding: 0.75rem;
     font-size: 1.1rem;
@@ -91,8 +144,9 @@
     padding: 1.5rem;
     text-align: left;
     color: inherit;
+    color: #ffffff;
     text-decoration: none;
-    border: 1px solid #eaeaea;
+    border: 1px solid #000000;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     max-width: 350px;
@@ -101,29 +155,33 @@
   .card:hover,
   .card:focus,
   .card:active {
-    background-color: #272c34;
-    color: #0ea5e9;
-    border-color: #0ea5e9;
+    background-color: #dce1a5;
+    color: #ffffff;
+    border-color: rgb(205, 98, 52);
   }
   
   .card h2 {
+    color: #ffffff;
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
   }
   
   .card p {
+    color: #ffffff;
     margin: 0;
     font-size: 1.25rem;
     line-height: 1.5;
   }
   
   .logo {
+    color: #ffffff;
     height: 1em;
     margin-left: 0.5rem;
   }
   
   @media (max-width: 600px) {
     .grid {
+      color: #ffffff;
       width: 100%;
       flex-direction: column;
     }
@@ -131,10 +189,10 @@
   
   .card,
   .footer {
-    border-color: #222;
+    border-color: #ffffff;
   }
   .code {
-    background: #111;
+    background: #ffffff;
   }
   .logo img {
     filter: invert(1);

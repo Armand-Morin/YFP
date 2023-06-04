@@ -18,7 +18,7 @@ export default function InstructionsComponent() {
 			<div className={styles.buttons_container}>
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                Amount of ETH to stake:
+                Amount of MATIC to stake:
                 <input
                   className={styles.textbox}
                   type="number"
