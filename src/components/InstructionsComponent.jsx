@@ -16,37 +16,33 @@ export default function InstructionsComponent() {
 			</header>
 
 			<div className={styles.buttons_container}>
-				<a
-					target={"_blank"}
-					href={"/staking"}
-				>
-					<div className={styles.button}>
-						{/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
-						<p>Staking</p>
-					</div>
-				</a>
-				<a  
-					href={"/liquidity-management"}
-				>
-					<div className={styles.button}>
-						{/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
-						<p>Liquidity Management</p>
-					</div>
-				</a>
-				<a
-					target={"_blank"}
-					href={"/quant_strategies"}
-				>
-					<div className={styles.button}>
-						<img
-							src="https://static.alchemyapi.io/images/cw3d/Icon%20Large/file-eye-01-l.svg"
-							width={"20px"}
-							height={"20px"}
-						/>
-						<p>Quantitative Strategies</p>
-					</div>
-				</a>
-			</div>
+            <form className="form" onSubmit={numberStake}>
+              <p className={styles.description}>
+                Amount of ETH to stake:
+                <input
+                  className={styles.textbox}
+                  type="number"
+                  value={number}
+                  onChange={(event) => setNumber(event.target.value)}
+                />
+              </p>
+              <Web3Button type="submit">Stake!</Web3Button>
+            </form>
+            <br />
+            <form className="form" onSubmit={numberWithdraw}>
+              <p className={styles.description}>
+                Withdraw (Enter NFT id):
+                <input
+                  className={styles.textbox}
+                  type="number"
+                  value={withdrawNumber}
+                  onChange={(event) => setWithdrawNumber(event.target.value)}
+                />
+              </p>
+              <Web3Button type="submit">Unstake!</Web3Button>
+            </form>
+          	</div>
+
 			<div className={styles.footer}>
 				<div>
 						<a

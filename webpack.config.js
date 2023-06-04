@@ -28,8 +28,17 @@ module.exports = {
     fallback: {
       assert: require.resolve('assert/'),
       stream: require.resolve('stream-browserify'),
+      zlib: require.resolve("browserify-zlib"),
+      //zlib: false,
+      fs: false,
     },
   },
+  resolve: {
+    alias: {
+      fs: 'graceful-fs' // Use the 'graceful-fs' polyfill for 'fs' module
+    }
+  },
+
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     port: 3000,
