@@ -1,3 +1,4 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   ConnectWallet,
   ThirdwebProvider,
@@ -8,7 +9,7 @@ import React, { useState, useEffect } from "react";
 import { StakingContract } from "./abi/abi.js";
 import styles from "./styles/Home.module.css";
 import Web3 from "web3";
-import "./App.css";
+import "./styles/App.css";
 
 const web3 = new Web3(Web3.givenProvider);
 const contractAddress = "0x1359dffc4b2223Fcac5064234863eF04ae526eDC";
@@ -142,7 +143,7 @@ function App() {
   };
 
   return (
-    <ThirdwebProvider>
+    <ThirdwebProvider desiredChain={"sepolia"}>
       <div className={styles.main}>
       <header className={styles.header}>
         {!address ? (
