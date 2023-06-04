@@ -28,8 +28,8 @@ module.exports = {
     fallback: {
       assert: require.resolve('assert/'),
       stream: require.resolve('stream-browserify'),
-      zlib: require.resolve("browserify-zlib"),
-      //zlib: false,
+      //zlib: require.resolve("browserify-zlib"),
+      zlib: false,
       fs: false,
     },
   },
