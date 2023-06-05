@@ -1,12 +1,20 @@
 
 .container {
     padding: 0 2rem;
+    color: rgb(227, 144, 109);
   }
 
 .alchemy_logo{
-  flex-grow: 1;
+  margin: 0 200px;
   cursor: pointer;
+  background: linear-gradient(140deg, rgb(205, 98, 52) 0%, rgb(220, 206, 20) 100%);
 }
+.centered {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header {
   display: flex;
   flex-grow: 10;
@@ -49,13 +57,13 @@
   }
 
   .navbar {
+    margin: 0 20px;
+    margin-right: 200px;
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    
-    margin-bottom: 0rem;
   }
   
   .main {

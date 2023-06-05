@@ -10,6 +10,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { StakingContract } from "./abi/abi.js";
 import styles from "./styles/Home.module.css";
+import yfLogo from "./styles/logo.svg"
 import Web3 from "web3";
 import "./styles/App.css";
 
@@ -148,14 +149,12 @@ function App() {
     <ThirdwebProvider>
       <div className={styles.main}>
       <header className={styles.navbar}>
-          <img className={styles.alchemy_logo} src=".src/yf.png" style={{ width: "200px", height: "82px" }}></img>
-          <a className={styles.container} href="/whitepaper">Whitepaper</a>
-          <div className={styles.icons_container}>
-						<a
-							href="https://github.com/Armand-Morin/YFP"
-							target={"_blank"}
-						>
-							Leave a star on Github
+          <img className={styles.alchemy_logo} src={yfLogo} style={{ width: "150px" }}></img>
+          <a className={styles.container} href="/whitepaper"><strong>Whitepaper</strong></a>
+          <div className={styles.container}>
+						<a className={styles.container} href="https://github.com/Armand-Morin/YFP"
+							 target={"_blank"}>
+							<strong>Leave a star on Github</strong>
 						</a>
 					</div>
           <ConnectWallet
