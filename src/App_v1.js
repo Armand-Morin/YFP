@@ -1,15 +1,14 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import "@rainbow-me/rainbowkit/styles.css";
-import { Button, TextField } from '@mui/material';
 import {
   ConnectWallet,
   ThirdwebProvider,
-  Web3Button,
 } from "@thirdweb-dev/react";
 
 import React, { useState, useEffect } from "react";
 import { StakingContract } from "./abi/abi.js";
 import styles from "./styles/Home.module.css";
+import yfLogo from "./styles/logo.svg"
 import Web3 from "web3";
 import "./styles/App.css";
 
@@ -147,21 +146,15 @@ function App() {
   return (
     <ThirdwebProvider>
       <div className={styles.main}>
-        <header className={styles.navbar}>
-          <img
-            className={styles.alchemy_logo}
-            src="./src/yf.png"
-            style={{ width: "200px", height: "82px" }}
-            alt="YF logo"
-          />
-          <a className={styles.container} href="/whitepaper">
-            Whitepaper
-          </a>
-          <div className={styles.icons_container}>
-            <a href="https://github.com/Armand-Morin/YFP" target={"_blank"}>
-              Leave a star on Github
-            </a>
-          </div>
+      <header className={styles.navbar}>
+          <img className={styles.alchemy_logo} src={yfLogo} style={{ width: "150px" }}></img>
+          <a className={styles.container} href="/whitepaper"><strong>Whitepaper</strong></a>
+          <div className={styles.container}>
+						<a className={styles.container} href="https://github.com/Armand-Morin/YFP"
+							 target={"_blank"}>
+							<strong>Leave a star on Github</strong>
+						</a>
+					</div>
           <ConnectWallet
             onConnect={connectWallet}
             render={({ loading, connect }) => (
@@ -170,20 +163,23 @@ function App() {
               </ConnectButton>
             )}
           />
-        </header>
+      
+      </header>
       
         <div className="card">
           <header className={styles.header_container}>
-            <h1>
-              <span>YieldForge Protocol</span>
-            </h1>
-            <p>Start exploring our strategies </p>
-          </header>
+          <h1>
+            <span>YieldForge Protocol</span>
+          </h1>
+          <p>
+            Start exploring our strategies{" "}
+          </p>
+        </header>
           
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                <strong>Amount of MATIC to stake:</strong>
+              <strong>Amount of MATIC to stake:</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -191,14 +187,12 @@ function App() {
                   onChange={(event) => setNumber(event.target.value)}
                 />
               </p>
-              <button className={styles.button} type="submit">
-                <strong>Stake!</strong>
-              </button>
-            </form>
+              <button className={styles.button} type="submit"><strong>Stake!</strong></button>
+              </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
-                <strong>Withdraw (Enter NFT id):</strong>
+              <strong>Withdraw (Enter NFT id):</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -206,13 +200,10 @@ function App() {
                   onChange={(event) => setWithdrawNumber(event.target.value)}
                 />
               </p>
-              <button className={styles.button} type="submit">
-                <strong>Unstake!</strong>
-              </button>
+              <button className={styles.button} type="submit"><strong>Unstake!</strong></button>
             </form>
           </div>
         </div>
-        
         <div className={styles.grid}>
           <a className={styles.card}>
             <h2>Staked token balance</h2>
@@ -268,6 +259,5 @@ function App() {
       </div>
     </ThirdwebProvider>
   );
-};
-
-export default App;
+  }
+  export default App;

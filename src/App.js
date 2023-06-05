@@ -25,6 +25,7 @@ function App() {
   const [symbol, setSymbol] = useState("");
   const [stakingTxHash, setStakingTxHash] = useState("");
   const [withdrawTxHash, setWithdrawTxHash] = useState("");
+  const [nfts, setNfts] = useState([]); // State to store NFTs
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -58,9 +59,21 @@ function App() {
       }
     };
 
+    const fetchNfts = async () => {
+      try {
+        const accounts = await web3.eth.requestAccounts();
+        const account = accounts[0];
+        const nfts = await contractInstance.methods.getNFTs(account).call();
+        setNfts(nfts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchMetadata();
     fetchBalance();
     fetchSymbol();
+    fetchNfts();
   }, []);
 
   const connectWallet = async () => {
@@ -150,11 +163,11 @@ function App() {
           <img className={styles.alchemy_logo} src={yfLogo} style={{ width: "150px" }}></img>
           <a className={styles.container} href="/whitepaper"><strong>Whitepaper</strong></a>
           <div className={styles.container}>
-						<a className={styles.container} href="https://github.com/Armand-Morin/YFP"
-							 target={"_blank"}>
-							<strong>Leave a star on Github</strong>
-						</a>
-					</div>
+            <a className={styles.container} href="https://github.com/Armand-Morin/YFP"
+               target={"_blank"}>
+              <strong>Leave a star on Github</strong>
+            </a>
+          </div>
           <ConnectWallet
             onConnect={connectWallet}
             render={({ loading, connect }) => (
@@ -163,23 +176,22 @@ function App() {
               </ConnectButton>
             )}
           />
-      
       </header>
       
         <div className="card">
           <header className={styles.header_container}>
-          <h1>
-            <span>YieldForge Protocol</span>
-          </h1>
-          <p>
-            Start exploring our strategies{" "}
-          </p>
-        </header>
+            <h1>
+              <span>YieldForge Protocol</span>
+            </h1>
+            <p>
+              Start exploring our strategies{" "}
+            </p>
+          </header>
           
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-              <strong>Amount of MATIC to stake:</strong>
+                <strong>Amount of MATIC to stake:</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -188,11 +200,11 @@ function App() {
                 />
               </p>
               <button className={styles.button} type="submit"><strong>Stake!</strong></button>
-              </form>
+            </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
-              <strong>Withdraw (Enter NFT id):</strong>
+                <strong>Withdraw (Enter NFT id):</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -204,35 +216,32 @@ function App() {
             </form>
           </div>
         </div>
-        <div className={styles.grid}>
-          <a className={styles.card}>
-            <h2>Staked token balance</h2>
-            <p>{balance}</p>
-          </a>
-          <a className={styles.card}>
-            <h2>Token Symbol:</h2>
-            <p>{symbol}</p>
-          </a>
-          <a className={styles.card}>
-            <strong>Token ID:</strong> {metadata.tokenId}
-          </a>
-          <a className={styles.card}>
-            <strong>Description Pairs:</strong>{" "}
-            {JSON.stringify(metadata.description_pairs)}
-          </a>
-          <a className={styles.card}>
-            <strong>Amount:</strong> {metadata.amount / 10 ** 18} MATIC
-          </a>
-          <a className={styles.card}>
-            <strong>Time Minted:</strong>{" "}
-            {new Date(metadata.time_minted * 1000).toLocaleString()}
-          </a>
-        </div>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th className={styles.text}>Token Symbol</th>
+              <th className={styles.text}>Token ID</th>
+              <th className={styles.text}>Description Pairs</th>
+              <th className={styles.text}>Amount</th>
+              <th className={styles.text}>Time Minted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{symbol}</td>
+              <td>{metadata.tokenId}</td>
+              <td>{JSON.stringify(metadata.description_pairs)}</td>
+              <td>{metadata.amount / 10 ** 18} MATIC</td>
+              <td>{new Date(metadata.time_minted * 1000).toLocaleString()}</td>
+            </tr>
+          </tbody>
+        </table>
+
         {stakingTxHash && (
           <div>
-            <p>
+            <p className={styles.container}>
               Staking TX on Mumbai:{" "}
-              <a
+              <a 
                 href={`https://mumbai.polygonscan.com/tx/${stakingTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -244,9 +253,9 @@ function App() {
         )}
         {withdrawTxHash && (
           <div>
-            <p>
+            <p className={styles.container}>
               Withdraw TX on Mumbai:{" "}
-              <a
+              <a 
                 href={`https://mumbai.polygonscan.com/tx/${withdrawTxHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -259,5 +268,6 @@ function App() {
       </div>
     </ThirdwebProvider>
   );
-  }
-  export default App;
+}
+
+export default App;

@@ -70,7 +70,6 @@
     min-height: 100vh;
     padding: 1rem 0;
     flex: 1;
-    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,7 +77,7 @@
     text-align: center;
     display: flex;
 
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     min-height: 100vh;
     min-height: 100vh;
     padding: 1rem 0;
@@ -257,3 +256,30 @@
     gap: 10rem;
     margin-bottom: .5rem;
   }
+
+
+  .table {
+    color: rgb(255, 255, 255) 0%;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+  }
+  
+  
+  .table th {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .table td {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
