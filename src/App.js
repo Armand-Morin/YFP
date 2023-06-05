@@ -161,7 +161,7 @@ function App() {
       <div className={styles.main}>
       <header className={styles.navbar}>
           <img className={styles.alchemy_logo} src={yfLogo} style={{ width: "150px" }}></img>
-          <a className={styles.container} href="/whitepaper"><strong>Whitepaper</strong></a>
+          <a className={styles.container} href="https://app.gitbook.com/invite/eI9S258WlMUQFFB5HqAk/16teVB6geqzth1xKIJqT"><strong>Whitepaper</strong></a>
           <div className={styles.container}>
             <a className={styles.container} href="https://github.com/Armand-Morin/YFP"
                target={"_blank"}>
