@@ -1,4 +1,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import "@rainbow-me/rainbowkit/styles.css";
+import { Button, TextField } from '@mui/material';
 import {
   ConnectWallet,
   ThirdwebProvider,
@@ -12,7 +14,7 @@ import Web3 from "web3";
 import "./styles/App.css";
 
 const web3 = new Web3(Web3.givenProvider);
-const contractAddress = "0x1359dffc4b2223Fcac5064234863eF04ae526eDC";
+const contractAddress = "0x30Af08187a4E05D62edaBb01e70C6B74040a31c2";
 const contractInstance = new web3.eth.Contract(StakingContract, contractAddress);
 
 function App() {
@@ -143,53 +145,74 @@ function App() {
   };
 
   return (
-    <ThirdwebProvider desiredChain={"sepolia"}>
+    <ThirdwebProvider>
       <div className={styles.main}>
-      <header className={styles.header}>
-        {!address ? (
+        <header className={styles.navbar}>
+          <img
+            className={styles.alchemy_logo}
+            src="./src/yf.png"
+            style={{ width: "200px", height: "82px" }}
+            alt="YF logo"
+          />
+          <a className={styles.container} href="/whitepaper">
+            Whitepaper
+          </a>
+          <div className={styles.icons_container}>
+            <a href="https://github.com/Armand-Morin/YFP" target={"_blank"}>
+              Leave a star on Github
+            </a>
+          </div>
           <ConnectWallet
             onConnect={connectWallet}
             render={({ loading, connect }) => (
-              <Web3Button onClick={connect} disabled={loading}>
+              <ConnectButton onClick={connect} disabled={loading}>
                 Connect Wallet
-              </Web3Button>
+              </ConnectButton>
             )}
           />
-        ) : (
-          <p>Connected Wallet Address: {address}</p>
-        )}
-      </header>
+        </header>
+      
         <div className="card">
-          <h1 className={styles.title}>Yield Forge Protocol</h1>
+          <header className={styles.header_container}>
+            <h1>
+              <span>YieldForge Protocol</span>
+            </h1>
+            <p>Start exploring our strategies </p>
+          </header>
           
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                Amount of MATIC to stake:
+                <strong>Amount of MATIC to stake:</strong>
                 <input
-                  className={styles.textbox}
+                  className={styles.input_box}
                   type="number"
                   value={number}
                   onChange={(event) => setNumber(event.target.value)}
                 />
               </p>
-              <Web3Button type="submit">Stake!</Web3Button>
+              <button className={styles.button} type="submit">
+                <strong>Stake!</strong>
+              </button>
             </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
-                Withdraw (Enter NFT id):
+                <strong>Withdraw (Enter NFT id):</strong>
                 <input
-                  className={styles.textbox}
+                  className={styles.input_box}
                   type="number"
                   value={withdrawNumber}
                   onChange={(event) => setWithdrawNumber(event.target.value)}
                 />
               </p>
-              <Web3Button type="submit">Unstake!</Web3Button>
+              <button className={styles.button} type="submit">
+                <strong>Unstake!</strong>
+              </button>
             </form>
           </div>
         </div>
+        
         <div className={styles.grid}>
           <a className={styles.card}>
             <h2>Staked token balance</h2>
@@ -245,5 +268,6 @@ function App() {
       </div>
     </ThirdwebProvider>
   );
-  }
-  export default App;
+};
+
+export default App;

@@ -147,8 +147,9 @@ function App() {
   return (
     <ThirdwebProvider>
       <div className={styles.main}>
-      <header className={styles.header}>
-          <img className={styles.alchemy_logo} src="./yf.png" style={{ width: "200px", height: "82px" }}></img>
+      <header className={styles.navbar}>
+          <img className={styles.alchemy_logo} src=".src/yf.png" style={{ width: "200px", height: "82px" }}></img>
+          <a className={styles.container} href="/whitepaper">Whitepaper</a>
           <div className={styles.icons_container}>
 						<a
 							href="https://github.com/Armand-Morin/YFP"
