@@ -5,26 +5,44 @@
 
 .container {
     padding: 0 2rem;
-
   }
 
-  .alchemy_logo{
-    width: 6rem;
-    cursor: pointer;
-  }
+.alchemy_logo{
+  flex-grow: 1;
+  width: 6rem;
+  cursor: pointer;
+}
+.header {
+  display: flex;
+  flex-grow: 10;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 2rem 4rem 0.8rem 4rem;
+}
 
   .header_container{
-    display: flex;
+    /*display: flex;
+    font-weight: bold;
     flex-direction: column;
-    align-items: center;
+    align-items: raw;
+    margin-bottom: 1rem;
+    padding: 2rem 4rem 0.8rem 4rem;
+    justify-content: space-between;*/
+    margin: 0 1000px;
+    width: 100%;
+    gap: 2rem;
   }
-  
+
+
   .header_container h1{
     font-size: 64px;
+    font-weight: bold;
   
   }
   .header_container p{
     font-size: 25;
+    font-weight: bold;
     color: rgb(227, 144, 109);
     
   }
@@ -86,6 +104,8 @@
     padding: 10px 10px;
     border-radius: 15px;
     border: none;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
     transition: background-color 0.1s ease;
   }
@@ -131,10 +151,11 @@
   
   .description {
     margin-top: 3rem;
+    text-align: center;
     color: #ffffff;
     margin-bottom: 2rem;
     line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   
   .code {
@@ -170,7 +191,7 @@
   .card:hover,
   .card:focus,
   .card:active {
-    background-color: #dce1a5;
+    background-color: rgb(235, 141, 101) 0%;
     color: #ffffff;
     border-color: rgb(205, 98, 52);
   }
@@ -216,13 +237,20 @@
 
   .input_box {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #ffffffd6;
+    border-radius: 15px;
     transition: border-color 0.3s ease;
   }
   
   .input_box:focus {
     outline: none;
     border-color: rgb(235, 141, 101) 0%;
-    box-shadow: 0 0 5px rgba(255, 255, 117, 0.742);
+    box-shadow: 0 0 5px rgb(235, 141, 101) 0%;
+  }
+
+  .icons_container{
+    color: rgb(205, 98, 52) 0%;
+    display: flex;
+    gap: 10rem;
+    margin-bottom: .5rem;
   }

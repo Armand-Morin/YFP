@@ -148,8 +148,15 @@ function App() {
     <ThirdwebProvider>
       <div className={styles.main}>
       <header className={styles.header}>
-        <img className={styles.alchemy_logo} src="public/yf.png" style={{ width: "200px", height: "82px" }}></img>
-        
+          <img className={styles.alchemy_logo} src="./yf.png" style={{ width: "200px", height: "82px" }}></img>
+          <div className={styles.icons_container}>
+						<a
+							href="https://github.com/Armand-Morin/YFP"
+							target={"_blank"}
+						>
+							Leave a star on Github
+						</a>
+					</div>
           <ConnectWallet
             onConnect={connectWallet}
             render={({ loading, connect }) => (
@@ -174,7 +181,7 @@ function App() {
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                Amount of MATIC to stake:
+              <strong>Amount of MATIC to stake:</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -182,12 +189,12 @@ function App() {
                   onChange={(event) => setNumber(event.target.value)}
                 />
               </p>
-              <button className={styles.button} type="submit">Stake!</button>
-            </form>
+              <button className={styles.button} type="submit"><strong>Stake!</strong></button>
+              </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
-                Withdraw (Enter NFT id):
+              <strong>Withdraw (Enter NFT id):</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -195,7 +202,7 @@ function App() {
                   onChange={(event) => setWithdrawNumber(event.target.value)}
                 />
               </p>
-              <button className={styles.button} type="submit">Unstake!</button>
+              <button className={styles.button} type="submit"><strong>Unstake!</strong></button>
             </form>
           </div>
         </div>
