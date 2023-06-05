@@ -228,10 +228,10 @@
   
   .card,
   .footer {
-    border-color: #ffffff;
+    border-color: #000000;
   }
   .code {
-    background: #ffffff;
+    background: #000000;
   }
   .logo img {
     filter: invert(1);
@@ -240,7 +240,7 @@
 
   .input_box {
     padding: 10px;
-    border: 1px solid #ffffffd6;
+    border: 1px solid #baa5a5d6;
     border-radius: 15px;
     transition: border-color 0.3s ease;
   }

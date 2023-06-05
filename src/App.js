@@ -1,10 +1,8 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import "@rainbow-me/rainbowkit/styles.css";
-import { Button, TextField } from '@mui/material';
 import {
   ConnectWallet,
   ThirdwebProvider,
-  Web3Button,
 } from "@thirdweb-dev/react";
 
 import React, { useState, useEffect } from "react";
