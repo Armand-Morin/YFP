@@ -1,3 +1,8 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
 .container {
     padding: 0 2rem;
 
@@ -75,10 +80,20 @@
   }
   
   .button {
-    padding: 5px;
-    margin-left: 10px;
+    background: linear-gradient(140deg, rgb(235, 141, 101) 0%, rgb(216, 208, 93) 100%);
+    font-size: 27;
+    color: #000000;
+    padding: 10px 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
   }
   
+  .button:hover {
+    background-color: rgb(235, 141, 101) 0%;
+  }
+
   .title a {
     color: #f213a4;
     text-decoration: none;
@@ -198,3 +213,16 @@
     filter: invert(1);
   }
   
+
+  .input_box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input_box:focus {
+    outline: none;
+    border-color: rgb(235, 141, 101) 0%;
+    box-shadow: 0 0 5px rgba(255, 255, 117, 0.742);
+  }

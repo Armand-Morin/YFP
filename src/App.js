@@ -1,5 +1,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import "@rainbow-me/rainbowkit/styles.css";
+import { Button, TextField } from '@mui/material';
 import {
   ConnectWallet,
   ThirdwebProvider,
@@ -147,7 +148,7 @@ function App() {
     <ThirdwebProvider>
       <div className={styles.main}>
       <header className={styles.header}>
-        <img className={styles.alchemy_logo} src="../logo.svg" style={{ width: "200px", height: "82px" }}></img>
+        <img className={styles.alchemy_logo} src="public/yf.png" style={{ width: "200px", height: "82px" }}></img>
         
           <ConnectWallet
             onConnect={connectWallet}
@@ -175,26 +176,26 @@ function App() {
               <p className={styles.description}>
                 Amount of MATIC to stake:
                 <input
-                  className={styles.textbox}
+                  className={styles.input_box}
                   type="number"
                   value={number}
                   onChange={(event) => setNumber(event.target.value)}
                 />
               </p>
-              <button type="submit">Stake!</button>
+              <button className={styles.button} type="submit">Stake!</button>
             </form>
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
                 Withdraw (Enter NFT id):
                 <input
-                  className={styles.textbox}
+                  className={styles.input_box}
                   type="number"
                   value={withdrawNumber}
                   onChange={(event) => setWithdrawNumber(event.target.value)}
                 />
               </p>
-              <button type="submit">Unstake!</button>
+              <button className={styles.button} type="submit">Unstake!</button>
             </form>
           </div>
         </div>
