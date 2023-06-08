@@ -161,7 +161,7 @@ function App() {
       <div className={styles.main}>
       <header className={styles.navbar}>
           <img className={styles.alchemy_logo} src={yfLogo} style={{ width: "150px" }}></img>
-          <a className={styles.container} href="https://yieldforge.gitbook.io/untitled/"><strong>Whitepaper</strong></a>
+          <a className={styles.container} href="https://yieldforge.gitbook.io/untitled/" target={"_blank"}><strong>Whitepaper</strong></a>
           <div className={styles.container}>
             <a className={styles.container} href="https://github.com/Armand-Morin/YFP"
                target={"_blank"}>
