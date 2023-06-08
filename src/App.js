@@ -17,6 +17,8 @@ const contractAddress = "0x30Af08187a4E05D62edaBb01e70C6B74040a31c2";
 const contractInstance = new web3.eth.Contract(StakingContract, contractAddress);
 
 function App() {
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [number, setNumber] = useState(0);
   const [withdrawNumber, setWithdrawNumber] = useState(0);
   const [balance, setBalance] = useState(0);
@@ -28,6 +30,8 @@ function App() {
   const [nfts, setNfts] = useState([]); // State to store NFTs
 
   useEffect(() => {
+    if (isLoggedIn) {
+    
     const fetchMetadata = async () => {
       try {
         const accounts = await web3.eth.requestAccounts();
@@ -74,7 +78,7 @@ function App() {
     fetchBalance();
     fetchSymbol();
     fetchNfts();
-  }, []);
+  } }, [isLoggedIn]);
 
   const connectWallet = async () => {
     try {
@@ -85,6 +89,45 @@ function App() {
       console.error(error);
     }
   };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    // Replace 'YOUR_PASSWORD' with your actual password
+    if (password === "MFE24") {
+      setIsLoggedIn(true);
+      setPassword("");
+    } else {
+      alert("Invalid password");
+    }
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <div className={styles.loginForm}>
+        <div className={styles.main}>
+          <div className="card">
+            <header className={styles.header_container}>
+              <h1><span>YieldForge Protocol</span></h1>
+            </header>
+          </div>
+          <div className={styles.loginFormContent}>
+            <strong className={styles.description}>Please enter the password</strong>
+            <form onSubmit={handleLogin}>
+              <input
+                type="password"
+                className={styles.input_box}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Password"
+              />
+              <button className={styles.button} type="submit"><strong>Login</strong></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
 
   const numberStake = async (event) => {
     event.preventDefault();
@@ -191,7 +234,7 @@ function App() {
           <div className="forms-container">
             <form className="form" onSubmit={numberStake}>
               <p className={styles.description}>
-                <strong>Amount of MATIC to stake:</strong>
+                <strong className={styles.description}> Amount of MATIC to stake:</strong>
                 <input
                   className={styles.input_box}
                   type="number"
@@ -204,7 +247,7 @@ function App() {
             <br />
             <form className="form" onSubmit={numberWithdraw}>
               <p className={styles.description}>
-                <strong>Withdraw (Enter NFT id):</strong>
+                <strong className={styles.description}>Withdraw (Enter NFT id):</strong>
                 <input
                   className={styles.input_box}
                   type="number"

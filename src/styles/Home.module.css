@@ -47,7 +47,6 @@
     font-size: 25;
     font-weight: bold;
     color: rgb(227, 144, 109);
-    
   }
   
   .header_container h1 span{
@@ -139,16 +138,15 @@
     font-size: 4rem;
     padding: 1rem 0;
   }
-  
-  .title,
-  .description {
-    color: #ffffff;
-    text-align: center;
-  }
-  
+
   .connect {
     margin-bottom: 2rem;
     width: 230px;
+  }
+
+  .description strong{
+    margin-bottom: 1.5rem;
+  
   }
   
   .description {
@@ -281,5 +279,50 @@
     text-align: center;
     border-bottom: 1px solid #ddd;
   }
+  
+  .loginForm {
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main {
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header_container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .input_box {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+  }
+  
   
   
