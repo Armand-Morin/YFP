@@ -11,7 +11,9 @@ Armand MORIN & Franco Delgado
         -  Staking solidity contract to alow investors to deposit their money
         
         -  Liquidity Providing contract to deal with backend operation of rebalancing liquidity
+
 - Test Folder:
+
         -  Test files to simulate interaction with the smart contract
 
 
