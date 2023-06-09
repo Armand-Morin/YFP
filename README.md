@@ -22,5 +22,7 @@ Armand MORIN & Franco Delgado
 MIT
 
 **Disclosures: NOT Financial Advisor.**
+
 **Invest at your own risks. Do your own research**
+
 All right reserved © 
