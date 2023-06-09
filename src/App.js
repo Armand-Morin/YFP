@@ -15,9 +15,14 @@ import "./styles/App.css";
 const web3 = new Web3(Web3.givenProvider);
 const contractAddress = "0x30Af08187a4E05D62edaBb01e70C6B74040a31c2";
 const contractInstance = new web3.eth.Contract(StakingContract, contractAddress);
+//require('dotenv').config();
+//config();
+//const { PASSWORD } = process.env;
+
 
 function App() {
-  const [password, setPassword] = useState("");
+  const passwordFromEnv = process.env.PASSWORD || "";
+  const [password, setPassword] = useState(passwordFromEnv);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [number, setNumber] = useState(0);
   const [withdrawNumber, setWithdrawNumber] = useState(0);
@@ -95,7 +100,6 @@ function App() {
     // Replace 'YOUR_PASSWORD' with your actual password
     if (password === "MFE24") {
       setIsLoggedIn(true);
-      setPassword("");
     } else {
       alert("Invalid password");
     }
@@ -122,6 +126,7 @@ function App() {
               />
               <button className={styles.button} type="submit"><strong>Login</strong></button>
             </form>
+            <p className={styles.password}>Password: {process.env.REACT_APP_PASSWORD}</p>
           </div>
         </div>
       </div>

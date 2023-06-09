@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.password {
+  color: white;
+}
+
 .header {
   display: flex;
   flex-grow: 10;

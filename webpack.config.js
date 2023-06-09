@@ -1,6 +1,8 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development', // Specify the mode here
+
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -14,7 +16,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', '@babel/preset-react'], // Add @babel/preset-react here
           },
         },
       },
@@ -28,19 +30,20 @@ module.exports = {
     fallback: {
       assert: require.resolve('assert/'),
       stream: require.resolve('stream-browserify'),
-      //zlib: require.resolve("browserify-zlib"),
+      path: require.resolve('path-browserify'),
+      os: require.resolve('os-browserify/browser'),
+      crypto: require.resolve('crypto-browserify'),
       zlib: false,
       fs: false,
     },
-  },
-  resolve: {
     alias: {
-      fs: 'graceful-fs' // Use the 'graceful-fs' polyfill for 'fs' module
-    }
+      fs: 'graceful-fs',
+    },
   },
-
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
     port: 3000,
   },
 };
