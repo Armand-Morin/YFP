@@ -7,6 +7,7 @@ Armand MORIN & Franco Delgado
 ## Files 
 
 - Contracts Folder:
+
         -  Staking solidity contract to alow investors to deposit their money
         
         -  Liquidity Providing contract to deal with backend operation of rebalancing liquidity
